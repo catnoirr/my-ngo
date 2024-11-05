@@ -1,4 +1,3 @@
-// src/app/components/PatientSignUp.jsx
 'use client';
 
 import { useState } from 'react';
@@ -7,6 +6,7 @@ import { collection, addDoc } from 'firebase/firestore';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import Image from 'next/image'; // Import Image
 
 const PatientSignUp = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ const PatientSignUp = () => {
   const [isForgotPassword, setIsForgotPassword] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState('');
-  const [loading, setLoading] = useState(false); // New loading state
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -39,27 +39,20 @@ const PatientSignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Start loading
-  
-    // Check if the password is present
+    setLoading(true);
+
     if (!formData.password) {
       setMessage('Password is required.');
-      setLoading(false); // Stop loading
+      setLoading(false);
       return;
     }
-  
+
     try {
       if (!isLogin) {
-        // Register a new user
         const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
         const user = userCredential.user;
-  
-        // Update profile with display name
-        await updateProfile(user, {
-          displayName: formData.name,
-        });
-  
-        // Add user data to Firestore
+
+        await updateProfile(user, { displayName: formData.name });
         await addDoc(collection(db, 'patients'), {
           uid: user.uid,
           name: formData.name,
@@ -68,20 +61,19 @@ const PatientSignUp = () => {
           dietaryNeeds: formData.dietaryNeeds,
           consent: formData.consent,
         });
-  
+
         setMessage('Successfully registered! Redirecting to login...');
         setTimeout(() => {
           setIsLogin(true);
           setMessage('');
-          setLoading(false); // Stop loading
+          setLoading(false);
         }, 3000);
       } else {
-        // Handle login
         await signInWithEmailAndPassword(auth, formData.email, formData.password);
         setMessage('Logged in successfully! Redirecting to dashboard...');
         setTimeout(() => {
           router.push('/patients/dashboard');
-          setLoading(false); // Stop loading
+          setLoading(false);
         }, 3000);
       }
     } catch (error) {
@@ -94,7 +86,7 @@ const PatientSignUp = () => {
         errorMessage = 'Check Your Details. Please try again.';
       }
       setMessage(errorMessage);
-      setLoading(false); // Stop loading on error
+      setLoading(false);
     }
   };
 
@@ -113,7 +105,7 @@ const PatientSignUp = () => {
   return (
     <div className="flex flex-col md:flex-row max-w-5xl mx-auto mb-8 p-8 bg-gradient-to-r from-blue-50 to-white rounded-lg shadow-xl mt-10 md:gap-4">
       <div className="md:w-1/2 overflow-hidden rounded-l-lg hidden md:block">
-        <img src="/boy.png" alt="Patient Illustration" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+        <Image src="/boy.png" alt="Patient Illustration" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" width={400} height={400} />
       </div>
       <div className="md:w-1/2 p-6 bg-white rounded-r-lg shadow-lg">
         <h2 className="text-3xl font-semibold mb-6 text-center text-yellow-600">
@@ -127,6 +119,7 @@ const PatientSignUp = () => {
                 <>
                   <input type="text" name="name" placeholder="Name" onChange={handleChange} required className="w-full p-3 border border-gray-300 rounded-lg" />
                   <input type="tel" name="phone" placeholder="Phone" onChange={handleChange} required className="w-full p-3 border border-gray-300 rounded-lg" />
+                  <input type="file" onChange={handleFileChange} className="w-full p-3 border border-gray-300 rounded-lg" />
                 </>
               )}
               <input type="email" name="email" placeholder="Email" onChange={handleChange} required className="w-full p-3 border border-gray-300 rounded-lg" />
@@ -157,9 +150,9 @@ const PatientSignUp = () => {
             <span onClick={toggleForgotPassword} className="text-yellow-600 cursor-pointer">Back to Login</span>
           ) : (
             <>
-              {isLogin ? <>Don't have an account? <span onClick={toggleForm} className="text-yellow-600 cursor-pointer">Sign Up</span></> : <>Already have an account? <span onClick={toggleForm} className="text-yellow-600 cursor-pointer">Login</span></>}
-              <br />
-              <span onClick={toggleForgotPassword} className="text-yellow-600 cursor-pointer">Forgot Password?</span>
+              {isLogin ? <>Don't have an account? <span onClick={toggleForm} className="text-yellow-600 cursor-pointer">Sign Up</span></> :
+                <>Already have an account? <span onClick={toggleForm} className="text-yellow-600 cursor-pointer">Login</span></>
+              }
             </>
           )}
         </p>

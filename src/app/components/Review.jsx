@@ -1,4 +1,3 @@
-// components/Review.jsx
 "use client";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -8,21 +7,23 @@ import Image from 'next/image';
 
 const reviews = [
   {
-    image: '/boy.png',
-    username: 'offx_sagr',
-    text: "Sip'n Swirl has truly mastered the art of coffee! Every sip is a flavor journey.",
+    image: '/ritu.jpeg',
+    username: 'Ritu Gupta',
+    text: "The impact of our initiatives has been remarkable! Every contribution counts towards a better future.",
+  },
+  {
+    image: '/sagar.jpg',
+    username: 'Sagar Paswan',
+
+    text: "Working with this NGO has opened my eyes to the challenges faced by our community and how we can help.",
   },
   {
     image: '/boy.png',
-    username: 'tech_noirr',
-    text: "At Sip'n Swirl, each cup of coffee is a carefully orchestrated symphony of flavor.",
-  },
-  {
-    image: '/boy.png',
-    username: 'cat_noir',
-    text: "At Sip'n Swirl, the coffee experience is an exquisite symphony. At Sip'n Swirl, each cup of coffee is a carefully orchestrated symphony of flavor.",
+    username: 'Jatin',
+    text: "I am proud to support this organization. Together, we are making a real difference in people's lives.",
   },
 ];
+
 
 const Review = () => {
   return (

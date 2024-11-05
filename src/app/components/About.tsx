@@ -1,8 +1,9 @@
 // components/AboutUsSection.tsx
 import React from 'react';
+import Image from 'next/image';
 
 const AboutUs: React.FC = () => (
-  <section className=" p-8">
+  <section className="p-8">
     <div className="max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row md:gap-40">
         <div className="md:w-1/2 p-4">
@@ -16,15 +17,15 @@ const AboutUs: React.FC = () => (
           </a>
         </div>
         <div className="md:w-1/2 p-4">
-          <img
+          <Image
             src="/boy.png"
             alt="Person hugging a child"
             width={400}
             height={400}
+            className="object-cover" // Optional: Add this class for better image styling
           />
         </div>
       </div>
-     
     </div>
   </section>
 );

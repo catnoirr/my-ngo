@@ -6,7 +6,6 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import { db } from '../../firebase'; // Adjust the import based on your project structure
 import { collection, doc, setDoc, getDocs, deleteDoc } from 'firebase/firestore';
-import Modal from '../../components/Modal'
 
 export default function Dashboard() {
   const router = useRouter();
@@ -232,8 +231,3 @@ R
   );
 }
 
-const viewAssignedRequest = (requestId) => {
- 
-  // Implement the logic for viewing the assigned request details
-  // This could open a modal, navigate to a details page, etc.
-};

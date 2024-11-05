@@ -3,6 +3,8 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+
 
 export default function SupportSection() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -58,7 +60,7 @@ export default function SupportSection() {
     <section className="flex flex-col md:flex-row items-center py-10 sm:py-0 justify-between sm:pt-10 bg-black text-white md:px-40 px-10">
       {/* Image (first on small screens) */}
       <div className="flex-shrink-0 w-full md:w-[500px] mb-4 md:mb-0 order-1 md:order-2">
-        <img
+        <Image
           src="/girlw.png"
           alt="Support"
           className="h-full object-cover rounded-md"

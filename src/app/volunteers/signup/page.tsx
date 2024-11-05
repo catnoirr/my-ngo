@@ -8,7 +8,7 @@ import Image from 'next/image'; // Import the Image component
 
 const VolunteerSignUp = () => {
   const auth = getAuth();
-  const storage = getStorage();
+  // const storage = getStorage();
 
   const [formData, setFormData] = useState<{
     name: string;
