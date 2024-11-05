@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-
+const currentYear = new Date().getFullYear();
 const Footer: React.FC = () => (
+  
   <footer className="bg-gray-900 text-white p-8 rounded-t-lg shadow-lg">
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center text-center">
       <div className="transition-transform duration-300 hover:scale-105">
@@ -40,8 +41,10 @@ const Footer: React.FC = () => (
     
     <div className="mt-8 border-t border-gray-700 pt-6 flex flex-col items-center space-y-4 md:space-y-0 md:flex-row md:justify-between">
       <div className="text-center w-full text-gray-400">
-        <p className="transition-opacity duration-300 hover:opacity-80">Copyright © 2023 PJF</p>
-      </div>
+      <p className="transition-opacity duration-300 hover:opacity-80">
+        © {currentYear} PJF
+      </p>
+      © {currentYear} PJF      </div>
     </div>
   </footer>
 );
