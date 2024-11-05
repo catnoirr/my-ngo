@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Lightning border animation */
+.loading-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .loading-border {
+    padding: 2rem;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #fff, #fff) padding-box,
+      linear-gradient(90deg, #ff4d4d, #ffdb4d, #4dff4d, #4d4dff) border-box;
+    animation: lightning-border 2s linear infinite;
+  }
+  
+/* Lightning border effect */
+.loading-border {
+  border: 3px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+              linear-gradient(45deg, #ff4d4d, #ffdb4d, #4dff4d, #4d4dff) border-box;
+  animation: lightning-border 2s infinite linear;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+@keyframes lightning-border {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* .animate-spin {
+  @apply animate-spin;
+} */
+ /* styles/globals.css or your specific CSS file */
+/* styles/globals.css or your specific CSS file */
+.loader {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Centering and styling the loading text */
+.flex {
+  display: flex;/* Circular ring spinner styles */
+  .spinner {
+    border: 5px solid rgba(255, 255, 255, 0.3); /* Light color for the ring */
+    border-top: 5px solid #ffffff; /* Color for the top part of the ring */
+    border-radius: 50%;
+    width: 20px; /* Size of the spinner */
+    height: 20px; /* Size of the spinner */
+    animation: spin 0.6s linear infinite; /* Animation effect */
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg); /* Start from 0 degrees */
+    }
+    100% {
+      transform: rotate(360deg); /* Rotate to 360 degrees */
+    }
+  }
+  
+}
