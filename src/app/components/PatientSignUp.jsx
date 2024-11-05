@@ -6,7 +6,7 @@ import { collection, addDoc } from 'firebase/firestore';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
-import Image from 'next/image'; // Import Image
+import Image from 'next/image';
 
 const PatientSignUp = () => {
   const [formData, setFormData] = useState({
@@ -150,7 +150,7 @@ const PatientSignUp = () => {
             <span onClick={toggleForgotPassword} className="text-yellow-600 cursor-pointer">Back to Login</span>
           ) : (
             <>
-              {isLogin ? <>Don't have an account? <span onClick={toggleForm} className="text-yellow-600 cursor-pointer">Sign Up</span></> :
+              {isLogin ? <>Don&apos;t have an account? <span onClick={toggleForm} className="text-yellow-600 cursor-pointer">Sign Up</span></> :
                 <>Already have an account? <span onClick={toggleForm} className="text-yellow-600 cursor-pointer">Login</span></>
               }
             </>
