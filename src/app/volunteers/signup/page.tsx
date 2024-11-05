@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { getStorage } from "firebase/storage";
 import { db } from "../../firebase"; // Adjust the import path as necessary
 import { collection, addDoc, setDoc, doc } from "firebase/firestore"; // Import setDoc and doc
 import Image from 'next/image'; // Import the Image component

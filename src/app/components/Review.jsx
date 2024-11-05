@@ -14,21 +14,19 @@ const reviews = [
   {
     image: '/sagar.jpg',
     username: 'Sagar Paswan',
-
     text: "Working with this NGO has opened my eyes to the challenges faced by our community and how we can help.",
   },
   {
     image: '/boy.png',
     username: 'Jatin',
-    text: "I am proud to support this organization. Together, we are making a real difference in people's lives.",
+    text: "I am proud to support this organization. Together, we are making a real difference in people&apos;s lives.",
   },
 ];
-
 
 const Review = () => {
   return (
     <section className="review container mx-auto px-4 py-8 sm:w-10/12 md:w-8/12 lg:w-7/12" id="reviews">
-      <h2 className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8">Customer's Reviews</h2>
+      <h2 className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8">Customer&apos;s Reviews</h2>
       <Swiper
         modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}

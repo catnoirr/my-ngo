@@ -83,7 +83,7 @@ const PatientSignUp = () => {
       } else if (error.code === 'auth/wrong-password') {
         errorMessage = 'Please check your password.';
       } else {
-        errorMessage = 'Check Your Details. Please try again.';
+        errorMessage = 'Check your details. Please try again.';
       }
       setMessage(errorMessage);
       setLoading(false);
